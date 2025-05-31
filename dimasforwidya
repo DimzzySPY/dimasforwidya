@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Selamat Ulang Tahun Widya</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+<style>
+  /* Reset & base */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(120deg, #fce4ec 0%, #ce93d8 50%, #ba68c8 100%);
+    font-family: 'Poppins', sans-serif;
+    color: #4a1457;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+  }
+
+  /* Soft glowing background circles */
+  .glow-circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.3;
+    animation: pulse 6s ease-in-out infinite alternate;
+  }
+  .glow-circle.one {
+    width: 400px;
+    height: 400px;
+    background: #f48fb1;
+    top: 10%;
+    left: 15%;
+    animation-delay: 0s;
+  }
+  .glow-circle.two {
+    width: 500px;
+    height: 500px;
+    background: #ce93d8;
+    bottom: 5%;
+    right: 10%;
+    animation-delay: 3s;
+  }
+  @keyframes pulse {
+    0% {opacity: 0.3; transform: scale(1);}
+    100% {opacity: 0.5; transform: scale(1.1);}
+  }
+
+  /* Container */
+  .container {
+    background: rgba(255 255 255 / 0.9);
+    border-radius: 50px;
+    max-width: 720px;
+    padding: 60px 55px 70px;
+    box-shadow: 0 30px 80px rgba(142, 53, 109, 0.3);
+    position: relative;
+    z-index: 10;
+  }
+
+  /* Title */
+  h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 5rem;
+    color: #ab47bc;
+    margin-bottom: 30px;
+    user-select: none;
+    text-shadow:
+      0 0 10px #ce93d8,
+      0 0 20px #ba68c8,
+      0 0 30px #ab47bc;
+    animation: glowText 3.5s ease-in-out infinite alternate;
+  }
+  @keyframes glowText {
+    0% { text-shadow: 0 0 10px #ce93d8, 0 0 20px #ba68c8, 0 0 30px #ab47bc; color: #ab47bc;}
+    100% { text-shadow: 0 0 20px #d29ade, 0 0 40px #bb65c8, 0 0 60px #a24eb8; color: #a24eb8;}
+  }
+
+  /* Buttons */
+  button {
+    background: linear-gradient(135deg, #ba68c8, #8e24aa);
+    border: none;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding: 18px 60px;
+    cursor: pointer;
+    margin-top: 40px;
+    box-shadow: 0 15px 40px rgba(142, 53, 109, 0.5);
+    transition: all 0.35s ease;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+  }
+  button:hover {
+    background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+    box-shadow: 0 20px 50px rgba(142, 53, 109, 0.8);
+    transform: scale(1.05);
+  }
+  button:active {
+    transform: scale(0.95);
+  }
+
+  /* Text paragraphs */
+  p {
+    margin-top: 40px;
+    font-size: 1.35rem;
+    line-height: 1.7;
+    color: #5e2a5d;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 1.4s ease, opacity 1.4s ease;
+    white-space: pre-line;
+    user-select: text;
+  }
+  p.show {
+    max-height: 900px;
+    opacity: 1;
+  }
+
+  /* Heart icon */
+  .heart {
+    font-size: 4.5rem;
+    color: #d81b60;
+    margin-top: 45px;
+    animation: heartbeat 1.4s infinite ease-in-out;
+    user-select: none;
+    text-shadow: 0 0 20px #f48fb1;
+  }
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.4); }
+  }
+
+  /* Sakura petals minimal animation */
+  .petal {
+    position: fixed;
+    width: 22px;
+    height: 22px;
+    background: url('https://i.postimg.cc/sxNrq9Pw/sakura-petal.png') no-repeat center/contain;
+    opacity: 0.85;
+    pointer-events: none;
+    animation-name: fallRotatePetal;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  @keyframes fallRotatePetal {
+    0% {
+      transform: translateY(0) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(110vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Animated hands forming heart */
+  .hand-container {
+    position: relative;
+    margin-top: 45px;
+    width: 140px;
+    height: 110px;
+    margin-left: auto;
+    margin-right: auto;
+    user-select: none;
+  }
+  .hand {
+    position: absolute;
+    width: 60px;
+    height: 110px;
+    background: #fce4ec;
+    border-radius: 0 60px 60px 0;
+    box-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
+    animation: handWave 4s ease-in-out infinite;
+  }
+  .hand.left {
+    left: 0;
+    transform-origin: right center;
+    border-radius: 60px 0 0 60px;
+    animation-delay: 0s;
+  }
+  .hand.right {
+    right: 0;
+    transform-origin: left center;
+    border-radius: 0 60px 60px 0;
+    animation-delay: 2s;
+  }
+  @keyframes handWave {
+    0%, 100% { transform: rotate(0deg); box-shadow: 0 0 15px rgba(255, 182, 193, 0.6); }
+    50% { transform: rotate(15deg); box-shadow: 0 0 25px rgba(255, 105, 180, 0.9);}
+  }
+</style>
+</head>
+<body>
+
+  <!-- Glowing background circles -->
+  <div class="glow-circle one"></div>
+  <div class="glow-circle two"></div>
+
+  <!-- Sakura petals -->
+  <div id="petal-container"></div>
+
+  <div class="container">
+    <h1>Haii Cantikk, Selamat Ulang Tahun!</h1>
+    <button id="btnUcapan" onclick="showUcapan()">Klik di sini cantikku</button>
+    <p id="ucapan"></p>
+    <button id="btnMotivasi" onclick="showMotivasi()" style="display:none;">Klik lagi ya, cantikku</button>
+    <p id="motivasi"></p>
+
+    <!-- Animated hands forming a heart -->
+    <div class="hand-container" aria-label="Simbol tangan cinta">
+      <div class="hand left"></div>
+      <div class="hand right"></div>
+    </div>
+
+    <div class="heart" aria-hidden="true">♥</div>
+  </div>
+
+<script>
+  // Create limited petals (max 6) with staggered timing for smoothness
+  const petalContainer = document.getElementById('petal-container');
+  const maxPetals = 6;
+
+  for (let i = 0; i < maxPetals; i++) {
+    const petal = document.createElement('div');
+    petal.classList.add('petal');
+    petal.style.left = (Math.random() * 100) + 'vw';
+    petal.style.top = (-30 - Math.random() * 50) + 'px';
+    petal.style.animationDuration = (5 + Math.random() * 4) + 's';
+    petal.style.animationDelay = (i * 1.1) + 's';
+    petalContainer.appendChild(petal);
+  }
+
+  const ucapan = document.getElementById('ucapan');
+  const motivasi = document.getElementById('motivasi');
+  const btnUcapan = document.getElementById('btnUcapan');
+  const btnMotivasi = document.getElementById('btnMotivasi');
+
+  function typeText(element, text, callback) {
+    let i = 0;
+    element.textContent = '';
+    element.style.whiteSpace = 'pre-line';
+    element.classList.add('typing');
+    function typing() {
+      if(i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+        setTimeout(typing, 30);
+      } else {
+        element.classList.remove('typing');
+        if(callback) callback();
+      }
+    }
+    typing();
+  }
+
+  function showUcapan() {
+    btnUcapan.style.pointerEvents = 'none';
+    const text = `Di hari yang penuh cahaya ini, 14 Mei 2025,\nkeindahan dunia terpancar lewat senyummu, Widya.\n\nAku, Dimas, mengirimkan doa dan cinta yang tulus,\nsemoga setiap langkahmu dilimpahi kebahagiaan tiada tara.\n\nEngkaulah bintang yang menerangi gelap malamku.\n\nSelamat ulang tahun, cintaku.`;
+    ucapan.classList.add('show');
+    typeText(ucapan, text, () => {
+      btnUcapan.style.display = 'none';
+      btnMotivasi.style.display = 'inline-block';
+    });
+  }
+
+  function showMotivasi() {
+    btnMotivasi.style.pointerEvents = 'none';
+    const text = `Saat awan gelap mencoba menutupi senyummu,\ningatlah kau selalu punya pelangi di hatiku.\n\nJangan biarkan kesedihan merenggut cahaya indahmu.\nAku ada untukmu, selalu dan selamanya.\n\nTeruslah bersinar, cantikku, dan gapailah mimpi-mimpimu.\n\nKarena kau layak mendapatkan segalanya yang terbaik.`;
+    motivasi.classList.add('show');
+    typeText(motivasi, text);
+    btnMotivasi.style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
